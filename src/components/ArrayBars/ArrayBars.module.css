@@ -1,0 +1,243 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4) var(--space-4) var(--space-4);
+  overflow: hidden;
+}
+
+.barsWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.barGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 40px;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  min-height: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 66, 34, 0.95) 0%,
+    rgba(10, 36, 18, 0.9) 100%
+  );
+  border-top: 1px solid rgba(0, 255, 102, 0.3);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.barCompare {
+  background: linear-gradient(
+    180deg,
+    var(--color-compare) 0%,
+    rgba(0, 229, 255, 0.35) 100%
+  );
+  border-top: 2px solid #ffffff;
+  box-shadow:
+    0 0 22px rgba(0, 229, 255, 0.75),
+    0 0 40px rgba(0, 229, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 3;
+}
+
+.barSwap {
+  background: linear-gradient(
+    180deg,
+    var(--color-swap) 0%,
+    rgba(255, 51, 0, 0.35) 100%
+  );
+  border-top: 2px solid #ffffff;
+  box-shadow:
+    0 0 24px rgba(255, 51, 0, 0.85),
+    0 0 45px rgba(255, 51, 0, 0.35),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 4;
+}
+
+.barPivot {
+  background: linear-gradient(
+    180deg,
+    var(--color-pivot) 0%,
+    rgba(255, 0, 160, 0.35) 100%
+  );
+  border-top: 2px solid #ffffff;
+  box-shadow:
+    0 0 24px var(--color-pivot-glow),
+    0 0 45px rgba(255, 0, 160, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 3;
+}
+
+.barSorted {
+  background: linear-gradient(
+    180deg,
+    var(--color-sorted) 0%,
+    rgba(0, 255, 102, 0.35) 100%
+  );
+  border-top: 2px solid #b3ffcc;
+  box-shadow:
+    0 0 18px rgba(0, 255, 102, 0.65),
+    0 0 32px rgba(0, 255, 102, 0.2);
+  animation: sorted-glow 2.5s ease-in-out infinite alternate;
+}
+
+.barQuicksort {
+  background: linear-gradient(
+    180deg,
+    var(--color-quicksort) 0%,
+    rgba(0, 229, 255, 0.35) 100%
+  );
+  border-top: 2px solid #b3f5ff;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+}
+
+.barHeap {
+  background: linear-gradient(
+    180deg,
+    var(--color-heapsort) 0%,
+    rgba(255, 183, 0, 0.35) 100%
+  );
+  border-top: 2px solid #ffeb99;
+  box-shadow: 0 0 16px rgba(255, 183, 0, 0.5);
+}
+
+.barInsertion {
+  background: linear-gradient(
+    180deg,
+    var(--color-insertion) 0%,
+    rgba(0, 255, 102, 0.35) 100%
+  );
+  border-top: 2px solid #b3ffcc;
+  box-shadow: 0 0 16px rgba(0, 255, 102, 0.5);
+}
+
+.barQuicksortRange {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 229, 255, 0.55) 0%,
+    rgba(0, 229, 255, 0.15) 100%
+  );
+  border-top: 2px solid var(--color-quicksort);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
+}
+
+.barHeapRange {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 183, 0, 0.55) 0%,
+    rgba(255, 183, 0, 0.15) 100%
+  );
+  border-top: 2px solid var(--color-heapsort);
+  box-shadow: 0 0 12px rgba(255, 183, 0, 0.25);
+}
+
+.barInsertionRange {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 102, 0.55) 0%,
+    rgba(0, 255, 102, 0.15) 100%
+  );
+  border-top: 2px solid var(--color-insertion);
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.25);
+}
+
+.barInRange {
+  opacity: 1;
+}
+
+.barOutOfRange {
+  opacity: 0.2;
+  filter: saturate(0.2) blur(0.3px);
+}
+
+.barValue {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow:
+    0 0 6px rgba(0, 255, 102, 0.8),
+    0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Active range background */
+.rangeOverlay {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  background: var(--color-active-range);
+  border-left: 1px dashed rgba(0, 255, 102, 0.45);
+  border-right: 1px dashed rgba(0, 255, 102, 0.45);
+  box-shadow: inset 0 0 20px rgba(0, 255, 102, 0.08);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  transition:
+    left 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Pivot line */
+.pivotLine {
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-pivot);
+  box-shadow: 0 0 14px var(--color-pivot-glow);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--space-4) var(--space-2) var(--space-2) var(--space-2);
+    min-height: 220px;
+  }
+
+  .barGroup {
+    max-width: 24px;
+  }
+
+  .bar {
+    min-height: 3px;
+  }
+
+  .barValue {
+    font-size: 8px;
+    top: -14px;
+  }
+}

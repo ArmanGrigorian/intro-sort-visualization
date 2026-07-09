@@ -1,0 +1,117 @@
+.container {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  -moz-backdrop-filter: blur(var(--blur-md));
+  -ms-backdrop-filter: blur(var(--blur-md));
+  backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(0, 255, 102, 0.35);
+  box-shadow:
+    var(--shadow-sm),
+    inset 0 1px 0 rgba(0, 255, 102, 0.15);
+}
+
+.label {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-3);
+}
+
+.phaseRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.phaseIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.phaseIconQuicksort {
+  composes: phaseIcon;
+  background: var(--color-quicksort-dim);
+  color: var(--color-quicksort);
+  box-shadow:
+    inset 0 0 12px rgba(0, 229, 255, 0.3),
+    0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.phaseIconHeapsort {
+  composes: phaseIcon;
+  background: var(--color-heapsort-dim);
+  color: var(--color-heapsort);
+  box-shadow:
+    inset 0 0 12px rgba(255, 183, 0, 0.3),
+    0 0 10px rgba(255, 183, 0, 0.2);
+}
+
+.phaseIconInsertion {
+  composes: phaseIcon;
+  background: var(--color-insertion-dim);
+  color: var(--color-insertion);
+  box-shadow:
+    inset 0 0 12px rgba(0, 255, 102, 0.3),
+    0 0 10px rgba(0, 255, 102, 0.2);
+}
+
+.phaseName {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.phaseNameQuicksort {
+  composes: phaseName;
+  color: var(--color-quicksort);
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+}
+
+.phaseNameHeapsort {
+  composes: phaseName;
+  color: var(--color-heapsort);
+  text-shadow: 0 0 12px rgba(255, 183, 0, 0.6);
+}
+
+.phaseNameInsertion {
+  composes: phaseName;
+  color: var(--color-insertion);
+  text-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+}
+
+.phaseMeta {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  line-height: var(--leading-relaxed);
+}
+
+.idle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--space-3);
+  }
+
+  .phaseRow {
+    gap: var(--space-2);
+  }
+
+  .phaseName {
+    font-size: var(--text-md);
+  }
+}

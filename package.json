@@ -1,6 +1,6 @@
 {
   "name": "intro-sort-visualization",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,6 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "framer-motion": "^12.42.2",
     "next": "16.2.10",
     "react": "19.2.7",
     "react-dom": "19.2.7",
@@ -22,5 +23,11 @@
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "1.0.0",
     "typescript": "^6.0.3"
-  }
+  },
+  "browserslist": [
+    "chrome >= 122",
+    "edge >= 122",
+    "firefox >= 122",
+    "safari >= 16"
+  ]
 }

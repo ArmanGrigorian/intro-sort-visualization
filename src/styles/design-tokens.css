@@ -1,0 +1,198 @@
+/* ============================================
+   IntroSort Lab — Design Tokens
+   ============================================ */
+
+:root {
+  /* ── Color Palette (The Matrix Cyberpunk Theme) ── */
+
+  /* Backgrounds */
+  --bg-primary: #020603;
+  --bg-secondary: #050d07;
+  --bg-tertiary: #08160c;
+  --bg-elevated: #0c2012;
+  --bg-surface: rgba(6, 18, 9, 0.75);
+  --bg-glass: rgba(4, 14, 7, 0.7);
+  --bg-glass-hover: rgba(10, 26, 13, 0.85);
+
+  /* Borders (Matrix Grid) */
+  --border-subtle: rgba(0, 255, 102, 0.12);
+  --border-default: rgba(0, 255, 102, 0.22);
+  --border-hover: rgba(0, 255, 102, 0.4);
+  --border-active: rgba(0, 255, 102, 0.7);
+
+  /* Text (Phosphor & Digital Green) */
+  --text-primary: #e6fff0;
+  --text-secondary: #4ade80;
+  --text-tertiary: #169c46;
+  --text-muted: #10662d;
+
+  /* Algorithm Phase Colors */
+  --color-quicksort: #00e5ff;
+  --color-quicksort-dim: rgba(0, 229, 255, 0.18);
+  --color-quicksort-glow: rgba(0, 229, 255, 0.5);
+
+  --color-heapsort: #ffb700;
+  --color-heapsort-dim: rgba(255, 183, 0, 0.18);
+  --color-heapsort-glow: rgba(255, 183, 0, 0.5);
+
+  --color-insertion: #00ff66;
+  --color-insertion-dim: rgba(0, 255, 102, 0.18);
+  --color-insertion-glow: rgba(0, 255, 102, 0.5);
+
+  /* Operation Colors */
+  --color-compare: #00e5ff;
+  --color-compare-dim: rgba(0, 229, 255, 0.18);
+  --color-swap: #ff3300;
+  --color-swap-dim: rgba(255, 51, 0, 0.18);
+  --color-pivot: #ff00a0;
+  --color-pivot-dim: rgba(255, 0, 160, 0.2);
+  --color-pivot-glow: rgba(255, 0, 160, 0.55);
+  --color-sorted: #00ff66;
+  --color-sorted-dim: rgba(0, 255, 102, 0.18);
+  --color-active-range: rgba(0, 255, 102, 0.1);
+  --color-bar-default-start: #0a2412;
+  --color-bar-default-end: #144222;
+
+  /* Accent */
+  --color-accent: #00ff66;
+  --color-accent-dim: rgba(0, 255, 102, 0.15);
+  --color-danger: #ff3300;
+  --color-warning: #ffb700;
+  --color-success: #00ff66;
+
+  /* ── Typography ── */
+  --font-sans:
+    var(--font-geist-sans), "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", system-ui, sans-serif;
+  --font-mono:
+    "Geist Mono", "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+
+  --text-xs: clamp(0.625rem, 0.6rem + 0.15vw, 0.75rem);
+  --text-sm: clamp(0.75rem, 0.72rem + 0.18vw, 0.8125rem);
+  --text-base: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
+  --text-lg: clamp(0.9375rem, 0.9rem + 0.25vw, 1.0625rem);
+  --text-xl: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-2xl: clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem);
+  --text-3xl: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+
+  /* ── Spacing (4px base) ── */
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+
+  /* ── Layout ── */
+  --max-width: 1440px;
+  --sidebar-width: 320px;
+  --header-height: 56px;
+  --control-panel-height: 72px;
+  --timeline-height: 220px;
+
+  /* ── Border Radius ── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ── Shadows (Matrix Digital Glows) ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 255, 102, 0.08);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.7), 0 2px 6px rgba(0, 255, 102, 0.12);
+  --shadow-lg:
+    0 10px 30px rgba(0, 0, 0, 0.8), 0 6px 14px rgba(0, 255, 102, 0.18),
+    inset 0 1px 0 rgba(0, 255, 102, 0.25);
+  --shadow-xl:
+    0 20px 60px rgba(0, 0, 0, 0.9), 0 10px 25px rgba(0, 255, 102, 0.25),
+    inset 0 1px 0 rgba(0, 255, 102, 0.35);
+  --shadow-glow-cyan:
+    0 0 25px rgba(0, 229, 255, 0.45), 0 0 50px rgba(0, 229, 255, 0.15);
+  --shadow-glow-amber:
+    0 0 25px rgba(255, 183, 0, 0.45), 0 0 50px rgba(255, 183, 0, 0.15);
+  --shadow-glow-emerald:
+    0 0 25px rgba(0, 255, 102, 0.45), 0 0 50px rgba(0, 255, 102, 0.18);
+  --shadow-glow-purple:
+    0 0 25px rgba(255, 0, 160, 0.45), 0 0 50px rgba(255, 0, 160, 0.15);
+
+  /* ── Backdrop Blur ── */
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+  --blur-xl: 40px;
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+
+  /* ── Z-index ── */
+  --z-base: 0;
+  --z-above: 10;
+  --z-header: 100;
+  --z-panel: 200;
+  --z-overlay: 300;
+  --z-tooltip: 400;
+  --z-modal: 500;
+}
+
+/* ── Global Cyber Keyframe Animations ── */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(0, 255, 102, 0.3),
+      0 0 30px rgba(0, 255, 102, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba(0, 255, 102, 0.65),
+      0 0 50px rgba(0, 255, 102, 0.25);
+  }
+}
+
+@keyframes sorted-glow {
+  0% {
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 22px rgba(0, 255, 102, 0.75),
+      0 0 38px rgba(0, 255, 102, 0.25);
+  }
+}
+
+@keyframes depth-warning {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}

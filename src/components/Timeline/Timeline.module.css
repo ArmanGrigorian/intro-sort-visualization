@@ -1,0 +1,294 @@
+.container {
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  -moz-backdrop-filter: blur(var(--blur-md));
+  -ms-backdrop-filter: blur(var(--blur-md));
+  backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(0, 255, 102, 0.35);
+  box-shadow:
+    var(--shadow-sm),
+    inset 0 1px 0 rgba(0, 255, 102, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid rgba(0, 255, 102, 0.18);
+  background: rgba(8, 22, 12, 0.45);
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--font-weight-semibold);
+}
+
+.count {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-medium);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-2);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+.list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 2px;
+}
+
+.entry {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  border-left: 3px solid transparent;
+}
+
+.entry:hover {
+  background: rgba(0, 255, 102, 0.08);
+  border-left-color: rgba(0, 255, 102, 0.4);
+  transform: translateX(2px);
+}
+
+.entryCurrent {
+  composes: entry;
+  background: rgba(0, 255, 102, 0.18);
+  border: 1px solid rgba(0, 255, 102, 0.45);
+  border-left: 3px solid var(--color-accent);
+  box-shadow:
+    0 0 20px rgba(0, 255, 102, 0.25),
+    inset 0 0 10px rgba(0, 255, 102, 0.12);
+  transform: translateX(4px);
+}
+
+.entryCurrentQuicksort {
+  composes: entry;
+  background: rgba(0, 229, 255, 0.18);
+  border: 1px solid rgba(0, 229, 255, 0.45);
+  border-left: 3px solid var(--color-quicksort);
+  box-shadow:
+    0 0 20px rgba(0, 229, 255, 0.25),
+    inset 0 0 10px rgba(0, 229, 255, 0.12);
+  transform: translateX(4px);
+}
+
+.entryCurrentHeapsort {
+  composes: entry;
+  background: rgba(255, 183, 0, 0.18);
+  border: 1px solid rgba(255, 183, 0, 0.45);
+  border-left: 3px solid var(--color-heapsort);
+  box-shadow:
+    0 0 20px rgba(255, 183, 0, 0.25),
+    inset 0 0 10px rgba(255, 183, 0, 0.12);
+  transform: translateX(4px);
+}
+
+.entryCurrentInsertion {
+  composes: entry;
+  background: rgba(0, 255, 102, 0.18);
+  border: 1px solid rgba(0, 255, 102, 0.45);
+  border-left: 3px solid var(--color-insertion);
+  box-shadow:
+    0 0 20px rgba(0, 255, 102, 0.25),
+    inset 0 0 10px rgba(0, 255, 102, 0.12);
+  transform: translateX(4px);
+}
+
+.entryPhaseSwitch {
+  composes: entry;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: rgba(0, 255, 102, 0.08);
+}
+
+.entrySwitchQuicksort {
+  composes: entryPhaseSwitch;
+  border-left: 3px solid var(--color-quicksort);
+  background: rgba(0, 229, 255, 0.08);
+}
+
+.entrySwitchHeapsort {
+  composes: entryPhaseSwitch;
+  border-left: 3px solid var(--color-heapsort);
+  background: rgba(255, 183, 0, 0.08);
+}
+
+.entrySwitchInsertion {
+  composes: entryPhaseSwitch;
+  border-left: 3px solid var(--color-insertion);
+  background: rgba(0, 255, 102, 0.08);
+}
+
+.stepNum {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-tertiary);
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+  font-size: 10px;
+}
+
+.stepIcon {
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.stepText {
+  color: var(--text-secondary);
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Hovered states */
+.entry:hover .stepText {
+  color: var(--text-primary);
+}
+
+.entry:hover .stepNum,
+.entry:hover .stepIcon {
+  color: var(--text-secondary);
+}
+
+/* Current active step text */
+.entryCurrent .stepText,
+.entryCurrentQuicksort .stepText,
+.entryCurrentHeapsort .stepText,
+.entryCurrentInsertion .stepText {
+  color: #ffffff;
+  font-weight: var(--font-weight-semibold);
+}
+
+.entryCurrent .stepNum,
+.entryCurrentQuicksort .stepNum,
+.entryCurrentHeapsort .stepNum,
+.entryCurrentInsertion .stepNum {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.entryCurrent .stepIcon {
+  color: var(--color-accent);
+}
+
+.entryCurrentQuicksort .stepIcon {
+  color: var(--color-quicksort);
+}
+
+.entryCurrentHeapsort .stepIcon {
+  color: var(--color-heapsort);
+}
+
+.entryCurrentInsertion .stepIcon {
+  color: var(--color-insertion);
+}
+
+/* Phase switch step text */
+.entryPhaseSwitch .stepText {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.entrySwitchQuicksort .stepText {
+  color: var(--color-quicksort);
+  font-weight: var(--font-weight-bold);
+}
+
+.entrySwitchHeapsort .stepText {
+  color: var(--color-heapsort);
+  font-weight: var(--font-weight-bold);
+}
+
+.entrySwitchInsertion .stepText {
+  color: var(--color-insertion);
+  font-weight: var(--font-weight-bold);
+}
+
+.phaseBadge {
+  display: inline-flex;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-size: 9px;
+  font-weight: var(--font-weight-medium);
+  flex-shrink: 0;
+}
+
+.badgeQuicksort {
+  composes: phaseBadge;
+  background: var(--color-quicksort-dim);
+  color: var(--color-quicksort);
+}
+
+.badgeHeapsort {
+  composes: phaseBadge;
+  background: var(--color-heapsort-dim);
+  color: var(--color-heapsort);
+}
+
+.badgeInsertion {
+  composes: phaseBadge;
+  background: var(--color-insertion-dim);
+  color: var(--color-insertion);
+}
+
+.empty {
+  text-align: center;
+  padding: var(--space-6);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .entry {
+    padding: var(--space-1) var(--space-2);
+    gap: var(--space-1);
+  }
+
+  .stepNum {
+    min-width: 20px;
+    font-size: 9px;
+  }
+
+  .stepText {
+    font-size: 11px;
+  }
+}

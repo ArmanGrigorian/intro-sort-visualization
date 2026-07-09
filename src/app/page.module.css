@@ -1,0 +1,149 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(0, 255, 102, 0.1) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(0, 229, 255, 0.06) 0%,
+      transparent 50%
+    );
+}
+
+.mainContent {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr var(--sidebar-width);
+  grid-template-rows: 1fr;
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.vizArea {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid var(--border-subtle);
+  background: rgba(3, 11, 5, 0.5);
+}
+
+.barsContainer {
+  flex: 1;
+  padding: var(--space-4);
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+  background: rgba(4, 15, 7, 0.5);
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 2px;
+}
+
+.bottomPanel {
+  height: var(--timeline-height);
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  background: var(--bg-glass);
+}
+
+.bottomPanel > * {
+  height: 100%;
+  border-radius: 0;
+  border: none;
+}
+
+/* ── Responsive Mobile & Tablet Layout ── */
+
+@media (max-width: 1024px) {
+  .layout {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    height: auto;
+  }
+
+  .vizArea {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    height: 45vh;
+    min-height: 340px;
+    flex: none;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+    padding: var(--space-4);
+    overflow: visible;
+    max-height: none;
+    height: auto;
+  }
+
+  .sidebar > * {
+    min-width: 0;
+  }
+
+  .bottomPanel {
+    height: 320px;
+    min-height: 320px;
+    width: 100%;
+    flex: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .vizArea {
+    height: 38vh;
+    min-height: 260px;
+  }
+
+  .barsContainer {
+    padding: var(--space-2);
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+
+  .bottomPanel {
+    height: 340px;
+    min-height: 340px;
+  }
+}

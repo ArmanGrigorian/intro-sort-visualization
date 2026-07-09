@@ -1,0 +1,112 @@
+.container {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  -moz-backdrop-filter: blur(var(--blur-md));
+  -ms-backdrop-filter: blur(var(--blur-md));
+  backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(0, 255, 102, 0.35);
+  box-shadow:
+    var(--shadow-sm),
+    inset 0 1px 0 rgba(0, 255, 102, 0.15);
+}
+
+.label {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-3);
+}
+
+.meterWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.track {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 4px;
+  transition:
+    width 0.3s var(--ease-out),
+    background 0.3s ease;
+  position: relative;
+}
+
+.fillSafe {
+  composes: fill;
+  background: linear-gradient(
+    90deg,
+    var(--color-quicksort),
+    var(--color-accent)
+  );
+}
+
+.fillWarning {
+  composes: fill;
+  background: linear-gradient(90deg, var(--color-warning), #f59e0b);
+  animation: depth-warning 1.5s ease-in-out infinite;
+}
+
+.fillCritical {
+  composes: fill;
+  background: linear-gradient(90deg, var(--color-danger), #ef4444);
+  animation: depth-warning 0.8s ease-in-out infinite;
+}
+
+.depthValues {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}
+
+.depthValue {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.depthCurrent {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  min-width: 42px;
+  text-align: right;
+}
+
+.depthSafe {
+  composes: depthCurrent;
+  color: var(--color-quicksort);
+}
+
+.depthWarn {
+  composes: depthCurrent;
+  color: var(--color-warning);
+}
+
+.depthDanger {
+  composes: depthCurrent;
+  color: var(--color-danger);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--space-3);
+  }
+
+  .depthCurrent {
+    font-size: var(--text-xs);
+  }
+}
